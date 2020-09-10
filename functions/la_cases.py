@@ -27,7 +27,7 @@ def return_cases(search_string):
     la_cases = []
 
     while (i <= maxi): 
-        if(soup_strings[i] in soup_strings):
+        if(soup_strings[i] in search_string):
             
             length = len(soup_strings[i:])
             start = len(soup_strings) - length
