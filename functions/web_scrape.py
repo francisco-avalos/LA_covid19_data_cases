@@ -96,7 +96,7 @@ def LAC_NR_section():
     return pattern_1, pattern_2, pattern_3, column_size
 
 
-def LAC_HSS_section():
+def lac_hss_section():
     """
     Function returns string to search for in the 'Los Angeles County Homeless Service Settings' and the number of columns to look for
     Input: None
