@@ -14,6 +14,13 @@ from functions.web_scrape import rcac_section, LAC_NR_section
 
 rcac_string, No_columns = rcac_section()
 cases = return_cases(rcac_string)
+
+RESID_AND_ACUTE_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+RESID_AND_ACUTE_DF = rcac_df(RESID_AND_ACUTE_DF)
+
+
+RESID_AND_ACUTE_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
+
 # p1, p2, p3, No_columns = LAC_NR_section()
 
 
@@ -28,11 +35,7 @@ cases = return_cases(rcac_string)
 # LAC_NR_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/LA_County_Non-Residential_Settings.csv', index=False)
 
 
-RESID_AND_ACUTE_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-RESID_AND_ACUTE_DF = rcac_df(RESID_AND_ACUTE_DF)
 
-
-RESID_AND_ACUTE_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
 
 
 
