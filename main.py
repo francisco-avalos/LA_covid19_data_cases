@@ -32,7 +32,7 @@ p1, p2, p3, No_columns = LAC_NR_section()
 
 while (i <= maxi): 
     # if(soup_strings[i] in rcac_string):
-    if((soup_strings[i] in p1) & (soup_strings[i+1] in p2) & (soup_strings[i+2] in p3))
+    if((soup_strings[i] in p1) & (soup_strings[i+1] in p2) & (soup_strings[i+2] in p3)):
         length = len(soup_strings[i:])
         start = len(soup_strings) - length
         end = start + length
