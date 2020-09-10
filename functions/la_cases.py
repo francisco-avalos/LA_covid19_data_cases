@@ -15,7 +15,7 @@ soup = BeautifulSoup(req.text, 'html.parser')
 
 
 
-def return_cases(soup_strings):
+def return_cases(soup):
     soup_strings = []
     
     for string in soup.strings:
