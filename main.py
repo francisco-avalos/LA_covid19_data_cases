@@ -3,57 +3,59 @@ import requests
 from bs4 import BeautifulSoup
 
 
-from functions.web_scrape import search_start_end, remove_tabs_and_obs, convert_scrapped_data_to_dataframe
+from functions.web_scrape import convert_scrapped_data_to_dataframe
+from functions.la_cases import return_cases
 from functions.web_scrape import rcac_section, LAC_NR_section
 
 
 
 
-url = 'http://publichealth.lacounty.gov/media/Coronavirus/locations.htm'
-req = requests.get(url)
-soup = BeautifulSoup(req.text, 'html.parser')
+# url = 'http://publichealth.lacounty.gov/media/Coronavirus/locations.htm'
+# req = requests.get(url)
+# soup = BeautifulSoup(req.text, 'html.parser')
 
 
-soup_strings = []
+# soup_strings = []
 
-for string in soup.strings:
-    soup_strings.append(string)
-
-
-
-maxi = len(soup_strings)
-i = 0
-data_extract = []
-cases = []
+# for string in soup.strings:
+#     soup_strings.append(string)
 
 
-# rcac_string, No_columns = rcac_section()
-p1, p2, p3, No_columns = LAC_NR_section()
 
-while (i <= maxi): 
-    # if(soup_strings[i] in rcac_string):
-    if((soup_strings[i] in p1) & (soup_strings[i+1] in p2) & (soup_strings[i+2] in p3)):
-        length = len(soup_strings[i:])
-        start = len(soup_strings) - length
-        end = start + length
-        stop = 'Total'
-        placeholder=str()
-        while ((start <= end) & (placeholder != stop)):
-            placeholder = soup_strings[start]
-            data_extract.append(soup_strings[start])
-            start+=1
+# maxi = len(soup_strings)
+# i = 0
+# data_extract = []
+# cases = []
+
+
+rcac_string, No_columns = rcac_section()
+cases = LAC_NR_section()
+# p1, p2, p3, No_columns = LAC_NR_section()
+
+# while (i <= maxi): 
+#     # if(soup_strings[i] in rcac_string):
+#     if((soup_strings[i] in p1) & (soup_strings[i+1] in p2) & (soup_strings[i+2] in p3)):
+#         length = len(soup_strings[i:])
+#         start = len(soup_strings) - length
+#         end = start + length
+#         stop = 'Total'
+#         placeholder=str()
+#         while ((start <= end) & (placeholder != stop)):
+#             placeholder = soup_strings[start]
+#             data_extract.append(soup_strings[start])
+#             start+=1
         
-        data_start,data_end = search_start_end(data_extract)
+#         data_start,data_end = search_start_end(data_extract)
         
-        for i in range(len(data_extract)):
-            if ((i >= data_start) & (i <= data_end)):
-                cases.append(data_extract[i])
-        break
-    i+=1
+#         for i in range(len(data_extract)):
+#             if ((i >= data_start) & (i <= data_end)):
+#                 cases.append(data_extract[i])
+#         break
+#     i+=1
 
-del data_extract, i, maxi, data_start, data_end, length
+# del data_extract, i, maxi, data_start, data_end, length
 
-cases = remove_tabs_and_obs(cases)
+# cases = remove_tabs_and_obs(cases)
 
 
 LAC_NR_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
