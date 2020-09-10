@@ -70,7 +70,7 @@ def convert_scrapped_data_to_dataframe(entry_list, data_length):
 def rcac_section():
     """
     Function returns string to search for in the 'Residential Congregate and Acute
-    Care Settings section of the LA Public Care setting
+    Care Settings' section of the LA Public Care setting and the number of columns to look for 
     Input: None
     Output: a string and integer
     """
@@ -78,6 +78,22 @@ def rcac_section():
     column_size = 5
 
     return RCAC_string, column_size
+
+def LAC_NR_section():
+    """
+    Function returns string to search for in the 'Los Angeles County Non-Residential Settings' section of the LA Public Care Setting
+    and the number of columns to look for
+    ** Note: Due to the spacing in this section's web design, 3 pattern match strings are needed to confirm**
+
+    Input: None
+    Output: a stringa and integer
+    """
+    pattern_1 = 'Los Angeles County '
+    pattern_2 = 'Non-Residential'
+    pattern_3 = ' Settings Meeting the Criteria of Three or More '
+    column_size = 4
+
+    return pattern_1, pattern_2, pattern_3, column_size
 
 
 
