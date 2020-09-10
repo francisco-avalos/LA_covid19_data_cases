@@ -1,0 +1,8 @@
+pandas==1.1.0
+requests==2.22.0
+bs4==0.0.1
+urllib3==1.24.2
+numpy==1.17.2
+plotly==4.9.0
+glob2==0.7
+keplergl==0.2.1
