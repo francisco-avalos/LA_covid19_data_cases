@@ -27,10 +27,10 @@ data_extract = []
 cases = []
 
 
-rcac_string = rcac_section
+rcac_string = rcac_section()
 
 while (i <= maxi): 
-    if(soup_strings[i]==rcac_string):
+    if(soup_strings[i] in rcac_string):
         length = len(soup_strings[i:])
         start = len(soup_strings) - length
         end = start + length
