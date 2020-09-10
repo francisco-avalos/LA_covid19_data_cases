@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 
 
 from functions.web_scrape import search_start_end, remove_tabs_and_obs, convert_scrapped_data_to_dataframe
+from functions.web_scrape import rcac_section
 
 
 
@@ -26,13 +27,10 @@ data_extract = []
 cases = []
 
 
-## testing trial
-RCAC_string = 'Residential Congregate and Acute Care Settings Meeting the Criteria of (1) At Least One Laboratory-confirmed Resident or (2) Two or More Laboratory-confirmed Staff in Long-Term Care Facilities that are not Skilled Nursing Facilities, or (3) Three or More Laboratory-Confirmed Staff in Shared Housing'
-
-
+rcac_string = rcac_section
 
 while (i <= maxi): 
-    if(soup_strings[i]==RCAC_string):
+    if(soup_strings[i]==rcac_string):
         length = len(soup_strings[i:])
         start = len(soup_strings) - length
         end = start + length
@@ -67,7 +65,7 @@ RESID_AND_ACUTE_DF['total_deaths'] = RESID_AND_ACUTE_DF['total_deaths'].astype(i
 
 
 
-RESID_AND_ACUTE_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/section_data.csv', index=False)
+RESID_AND_ACUTE_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
 
 
 
