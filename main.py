@@ -29,7 +29,7 @@ from functions.web_scrape import rcac_section, LAC_NR_section
 
 
 rcac_string, No_columns = rcac_section()
-cases = LAC_NR_section()
+cases = return_cases(rcac_string)
 # p1, p2, p3, No_columns = LAC_NR_section()
 
 # while (i <= maxi): 
