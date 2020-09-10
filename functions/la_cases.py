@@ -75,6 +75,18 @@ def rcac_df(DF):
 
 	return DF
 
+def hss_df(DF):
+	"""
+	Function cleans up the column types for the LA county Homeless Service Settings dataframe 
+	Input: dataframe 
+	Output: dataframe
+	"""
+	DF.columns=['location_name', 'setting_type', 'number_of_confirmed_staff', 
+                                         'number_of_confirmed_non_staff', 'total_deaths']
+    DF['number_of_confirmed_staff'] = DF['number_of_confirmed_staff'].astype(int)
+    DF['number_of_confirmed_non_staff'] = DF['number_of_confirmed_non_staff'].astype(int)
+    DF['total_deaths'] = DF['total_deaths'].astype(int)
 
+    return DF
 
 
