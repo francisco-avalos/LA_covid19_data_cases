@@ -16,6 +16,11 @@ soup = BeautifulSoup(req.text, 'html.parser')
 
 
 def return_cases(search_string) -> list:
+	"""
+	Function scans the LA Public Health Care website and returns a list of the targetted data information
+	Input: string variable
+	Output: list
+	"""
     soup_strings = []
     
     for string in soup.strings:
@@ -53,3 +58,22 @@ def return_cases(search_string) -> list:
     la_cases = remove_tabs_and_obs(la_cases)
 
     return la_cases
+
+
+def rcac_df(DF):
+	"""
+	Function cleans up the column types for the Residential Congregate & Acute Care Settings dataframe
+	Input: dataframe
+	Output: dataframe
+	"""
+	DF.columns = ['location_name', 'city_name', 'number_of_confirmed_staff', 'number_of_confirmed_residents', 
+                  'total_deaths']
+    DF['number_of_confirmed_staff'] = DF['number_of_confirmed_staff'].astype(int)
+    DF['number_of_confirmed_residents'] = DF['number_of_confirmed_residents'].astype(int)
+    DF['total_deaths'] = DF['total_deaths'].astype(int)
+
+    return DF
+
+
+
+
