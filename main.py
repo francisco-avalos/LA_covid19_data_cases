@@ -27,7 +27,7 @@ data_extract = []
 cases = []
 
 
-rcac_string = rcac_section()
+rcac_string, No_columns = rcac_section()
 
 while (i <= maxi): 
     if(soup_strings[i] in rcac_string):
@@ -54,7 +54,7 @@ del data_extract, i, maxi, data_start, data_end, length
 cases = remove_tabs_and_obs(cases)
 
 
-RESID_AND_ACUTE_DF = convert_scrapped_data_to_dataframe(cases, data_length=5)
+RESID_AND_ACUTE_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
 
 
 RESID_AND_ACUTE_DF.columns=['location_name', 'city_name', 'number_of_confirmed_staff', 'number_of_confirmed_residents', 
