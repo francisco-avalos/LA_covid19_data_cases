@@ -16,72 +16,72 @@ soup = BeautifulSoup(req.text, 'html.parser')
 
 
 def return_cases(search_string) -> list:
-	"""
-	Function scans the LA Public Health Care website and returns a list of the targetted data information
-	Input: string variable
-	Output: list
-	"""
+    """
+    Function scans the LA Public Health Care website and returns a list of the targetted data information
+    Input: string variable
+    Output: list
+    """
 
-	soup_strings = []
-	
-	for string in soup.strings:
-		soup_strings.append(string)
+    soup_strings = []
+    
+    for string in soup.strings:
+        soup_strings.append(string)
 
-	maxi = len(soup_strings)
-	i = 0
-	data_extract = []
-	la_cases = []
+    maxi = len(soup_strings)
+    i = 0
+    data_extract = []
+    la_cases = []
 
-	while (i <= maxi): 
-		if(soup_strings[i] in search_string):
-			
-			length = len(soup_strings[i:])
-			start = len(soup_strings) - length
-			end = start + length
-			stop = 'Total'
-			placeholder=str()
+    while (i <= maxi): 
+        if(soup_strings[i] in search_string):
+            
+            length = len(soup_strings[i:])
+            start = len(soup_strings) - length
+            end = start + length
+            stop = 'Total'
+            placeholder=str()
 
-			while ((start <= end) & (placeholder != stop)):
-				placeholder = soup_strings[start]
-				data_extract.append(soup_strings[start])
-				start+=1
+            while ((start <= end) & (placeholder != stop)):
+                placeholder = soup_strings[start]
+                data_extract.append(soup_strings[start])
+                start+=1
 
-			data_start,data_end = search_start_end(data_extract)
+            data_start,data_end = search_start_end(data_extract)
 
-			for i in range(len(data_extract)):
-				if ((i >= data_start) & (i <= data_end)):
-					la_cases.append(data_extract[i])
-			break
-		i+=1
+            for i in range(len(data_extract)):
+                if ((i >= data_start) & (i <= data_end)):
+                    la_cases.append(data_extract[i])
+            break
+        i+=1
 
-	del data_extract, i, maxi, data_start, data_end, length
+    del data_extract, i, maxi, data_start, data_end, length
 
-	la_cases = remove_tabs_and_obs(la_cases)
+    la_cases = remove_tabs_and_obs(la_cases)
 
-	return la_cases
+    return la_cases
 
 
 def rcac_df(DF):
-	"""
-	Function cleans up the column types for the Residential Congregate & Acute Care Settings dataframe
-	Input: dataframe
-	Output: dataframe
-	"""
-	DF.columns = ['location_name', 'city_name', 'number_of_confirmed_staff', 'number_of_confirmed_residents', 
-				  'total_deaths']
-	DF['number_of_confirmed_staff'] = DF['number_of_confirmed_staff'].astype(int)
-	DF['number_of_confirmed_residents'] = DF['number_of_confirmed_residents'].astype(int)
-	DF['total_deaths'] = DF['total_deaths'].astype(int)
+    """
+    Function cleans up the column types for the Residential Congregate & Acute Care Settings dataframe
+    Input: dataframe
+    Output: dataframe
+    """
+    DF.columns = ['location_name', 'city_name', 'number_of_confirmed_staff', 'number_of_confirmed_residents', 
+                  'total_deaths']
+    DF['number_of_confirmed_staff'] = DF['number_of_confirmed_staff'].astype(int)
+    DF['number_of_confirmed_residents'] = DF['number_of_confirmed_residents'].astype(int)
+    DF['total_deaths'] = DF['total_deaths'].astype(int)
 
-	return DF
+    return DF
 
 def hss_df(DF):
-	"""
-	Function cleans up the column types for the LA county Homeless Service Settings dataframe 
-	Input: dataframe 
-	Output: dataframe
-	"""
-	DF.columns=['location_name', 'setting_type', 'number_of_confirmed_staff', 
+    """
+    Function cleans up the column types for the LA county Homeless Service Settings dataframe 
+    Input: dataframe 
+    Output: dataframe
+    """
+    DF.columns=['location_name', 'setting_type', 'number_of_confirmed_staff', 
                                          'number_of_confirmed_non_staff', 'total_deaths']
     DF['number_of_confirmed_staff'] = DF['number_of_confirmed_staff'].astype(int)
     DF['number_of_confirmed_non_staff'] = DF['number_of_confirmed_non_staff'].astype(int)
