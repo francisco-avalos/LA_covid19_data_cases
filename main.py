@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 
 from functions.web_scrape import convert_scrapped_data_to_dataframe
-from functions.la_cases import return_cases
+from functions.la_cases import return_cases, rcac_df
 from functions.web_scrape import rcac_section, LAC_NR_section
 
 
@@ -29,13 +29,7 @@ cases = return_cases(rcac_string)
 
 
 RESID_AND_ACUTE_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-
-RESID_AND_ACUTE_DF.columns=['location_name', 'city_name', 'number_of_confirmed_staff', 'number_of_confirmed_residents', 
-                  'total_deaths']
-RESID_AND_ACUTE_DF['number_of_confirmed_staff'] = RESID_AND_ACUTE_DF['number_of_confirmed_staff'].astype(int)
-RESID_AND_ACUTE_DF['number_of_confirmed_residents'] = RESID_AND_ACUTE_DF['number_of_confirmed_residents'].astype(int)
-RESID_AND_ACUTE_DF['total_deaths'] = RESID_AND_ACUTE_DF['total_deaths'].astype(int)
-
+RESID_AND_ACUTE_DF = rcac_df(RESID_AND_ACUTE_DF)
 
 
 RESID_AND_ACUTE_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
