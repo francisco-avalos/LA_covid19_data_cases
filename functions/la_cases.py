@@ -22,7 +22,7 @@ def return_cases(search_string) -> list:
 	Output: list
 	"""
     soup_strings = []
-    
+
     for string in soup.strings:
         soup_strings.append(string)
 
