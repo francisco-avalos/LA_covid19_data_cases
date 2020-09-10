@@ -1,7 +1,9 @@
 import re
+import requests
+from bs4 import BeautifulSoup
 
 
-from functions.webscrape import search_start_end, remove_tabs_and_obs, convert_scrapped_data_to_dataframe
+from functions.web_scrape import search_start_end, remove_tabs_and_obs, convert_scrapped_data_to_dataframe
 
 
 
@@ -52,6 +54,24 @@ while (i <= maxi):
 del data_extract, i, maxi, data_start, data_end, length
 
 cases = remove_tabs_and_obs(cases)
+
+
+RESID_AND_ACUTE_DF = convert_scrapped_data_to_dataframe(cases, data_length=5)
+
+
+if section_string:
+   RESID_AND_ACUTE_DF.columns=['location_name', 'city_name', 'number_of_confirmed_staff', 'number_of_confirmed_residents', 
+                  'total_deaths']
+    RESID_AND_ACUTE_DF['number_of_confirmed_staff'] = RESID_AND_ACUTE_DF['number_of_confirmed_staff'].astype(int)
+    RESID_AND_ACUTE_DF['number_of_confirmed_residents'] = RESID_AND_ACUTE_DF['number_of_confirmed_residents'].astype(int)
+    RESID_AND_ACUTE_DF['total_deaths'] = RESID_AND_ACUTE_DF['total_deaths'].astype(int)
+
+
+
+RESID_AND_ACUTE_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/section_data.csv', index=False)
+
+
+
 
 
 
