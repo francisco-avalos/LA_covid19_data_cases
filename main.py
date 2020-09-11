@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 
 from functions.web_scrape import convert_scrapped_data_to_dataframe
-from functions.la_cases import return_cases, rcac_df, hss_df, es_df
+from functions.la_cases import return_cases, return_cases_NonResidential, rcac_df, hss_df, es_df, nr_df
 from functions.web_scrape import rcac_section, LAC_NR_section, lac_hss_section, lac_es_section
 
 
@@ -38,8 +38,12 @@ ES_DF.to_csv(r'~/Desktop/LA_County_Educational_Settings.csv', index=False)
 
 
 
-# p1, p2, p3, No_columns = LAC_NR_section()
+p1, p2, p3, No_columns = LAC_NR_section()
+cases  = return_cases_NonResidential(p1, p2, p3)
+NR_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+NR_DF = nr_df(NR_DF)
 
+NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings', index=False)
 
 
 # LAC_NR_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
