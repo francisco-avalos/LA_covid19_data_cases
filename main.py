@@ -18,7 +18,7 @@ cases = return_cases(rcac_string)
 RCAC_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
 RCAC_DF = rcac_df(RCAC_DF)
 
-RCAC_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
+RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
 
 
 lac_hss_string, No_columns = lac_hss_section()
@@ -26,7 +26,7 @@ cases = return_cases(lac_hss_string)
 HSS_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
 HSS_DF = hss_df(HSS_DF)
 
-HSS_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
+HSS_DF.to_csv(r'~/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
 
 
 lac_es_string, No_columns = lac_es_section()
@@ -34,7 +34,7 @@ cases = return_cases(lac_es_string)
 ES_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
 ES_DF = es_df(ES_DF)
 
-ES_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/LA_County_Educational_Settings.csv', index=False)
+ES_DF.to_csv(r'~/Desktop/LA_County_Educational_Settings.csv', index=False)
 
 
 
