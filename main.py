@@ -21,16 +21,15 @@ from functions.web_scrape import rcac_section, LAC_NR_section, lac_hss_section
 # RESID_AND_ACUTE_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
 
 
-
 lac_hss_string, No_columns = lac_hss_section()
-cases = return_cases('Los Angeles County Homeless Service Settings Meeting the Criteria of (1) At Least One ')
-print(lac_hss_string, No_columns)
-print(cases[:10])
+# print(return_cases('Los Angeles County Homeless Service Settings Meeting the Criteria of At Least One '))
+cases = return_cases(lac_hss_string)
+HSS_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+HSS_DF = hss_df(HSS_DF)
 
-# HSS_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-# HSS_DF = hss_df(HSS_DF)
+HSS_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
 
-# HSS_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
+
 
 # p1, p2, p3, No_columns = LAC_NR_section()
 

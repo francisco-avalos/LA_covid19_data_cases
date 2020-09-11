@@ -15,7 +15,7 @@ soup = BeautifulSoup(req.text, 'html.parser')
 
 
 
-def return_cases(search_string) -> list:
+def return_cases(search_input):
     """
     Function scans the LA Public Health Care website and returns a list of the targetted data information
     Input: string variable
@@ -23,7 +23,6 @@ def return_cases(search_string) -> list:
     """
 
     soup_strings = []
-    
     for string in soup.strings:
         soup_strings.append(string)
 
@@ -32,9 +31,8 @@ def return_cases(search_string) -> list:
     data_extract = []
     la_cases = []
 
-    while (i <= maxi): 
-        if(soup_strings[i] in search_string):
-            
+    while (i <= maxi):
+        if(soup_strings[i] == str(search_input)):
             length = len(soup_strings[i:])
             start = len(soup_strings) - length
             end = start + length

@@ -102,7 +102,7 @@ def lac_hss_section():
     Input: None
     Output: a string and integer
     """
-    HSS_string = 'Los Angeles County Homeless Service Settings Meeting the Criteria of (1) At Least One '
+    HSS_string = 'Los Angeles County Homeless Service Settings Meeting the Criteria of At Least One '
     column_size = 5
 
     return HSS_string, column_size
