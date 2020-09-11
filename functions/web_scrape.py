@@ -107,7 +107,16 @@ def lac_hss_section():
 
     return HSS_string, column_size
 
+def lac_es_section():
+	"""
+	Function returns string to search for in the 'Los Angeles County Educational Settings' and the number of columns to look for
+	Input: None
+	Output: a string and integer
+	"""
+	education_string = 'Los Angeles County Educational Settings Meeting the Criteria of Three or More '
+	column_size = 4
 
+	return education_string, column_size
 
 
 
