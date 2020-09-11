@@ -30,7 +30,7 @@ HSS_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/LA_County_Homeless_Service_Sett
 
 
 lac_es_string, No_columns = lac_es_section()
-cases = return_cases(lac_hss_string)
+cases = return_cases(lac_es_string)
 ES_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
 ES_DF = es_df(ES_DF)
 
