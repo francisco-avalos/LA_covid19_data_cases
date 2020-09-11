@@ -6,4 +6,4 @@ Specifically, it pulls pulls cases by points of interest in the following 4 sect
 * Los Angeles County Homeless Service Settings
 * Los Angeles County Educational Settings
 
-The file includes all the modules needed to run the files: use 'pip install -r requirements.txt'
+The requirements file includes all the modules needed to run the files: use 'pip install -r requirements.txt'
