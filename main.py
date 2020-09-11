@@ -4,8 +4,8 @@ from bs4 import BeautifulSoup
 
 
 from functions.web_scrape import convert_scrapped_data_to_dataframe
-from functions.la_cases import return_cases, rcac_df, hss_df
-from functions.web_scrape import rcac_section, LAC_NR_section, lac_hss_section
+from functions.la_cases import return_cases, rcac_df, hss_df, es_df
+from functions.web_scrape import rcac_section, LAC_NR_section, lac_hss_section, lac_es_section
 
 
 
@@ -27,6 +27,14 @@ HSS_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
 HSS_DF = hss_df(HSS_DF)
 
 HSS_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
+
+
+lac_es_string, No_columns = lac_es_section()
+cases = return_cases(lac_hss_string)
+ES_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+ES_DF = es_df(ES_DF)
+
+ES_DF.to_csv(r'/Users/franciscoavalosjr/Desktop/LA_County_Educational_Settings.csv', index=False)
 
 
 
