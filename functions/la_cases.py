@@ -87,4 +87,15 @@ def hss_df(DF):
 
     return DF
 
+def es_df(DF):
+    """
+    Function cleans up the column types for the LA county educational settings dataframe
+    Input: dataframe
+    Output: dataframe
+    """
+    DF.columns=['location_name','address','total_confirmed_staff','total_confirmed_students']
+    DF['total_confirmed_staff'] = DF['total_confirmed_staff'].astype(int)
+    DF['total_confirmed_students'] = DF['total_confirmed_students'].astype(int)
+
+    return DF
 
