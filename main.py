@@ -43,7 +43,7 @@ cases  = return_cases_NonResidential(p1, p2, p3)
 NR_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
 NR_DF = nr_df(NR_DF)
 
-NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings', index=False)
+NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings.csv', index=False)
 
 
 # LAC_NR_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
