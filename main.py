@@ -39,7 +39,6 @@ NR_DF = nr_df(NR_DF)
 NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings.csv', index=False)
 
 NR_DF = parse_address(NR_DF, NR_DF['address'])
-del NR_DF['empty']
 print(NR_DF.head())
 # NR_DF.columns = ['location_name','address','total_confirmed_staff','total_non_confirmed_symptomatic_staff','street_address','city',
 #                  'state','zipcode']
