@@ -6,7 +6,7 @@ from functions.web_scrape import convert_scrapped_data_to_dataframe
 from functions.la_cases import return_cases, return_cases_NonResidential, rcac_df, hss_df, es_df, nr_df
 from functions.web_scrape import rcac_section, LAC_NR_section, lac_hss_section, lac_es_section
 
-from parse_address import parse_address
+from parse_address import parse_functions
 
 
 
