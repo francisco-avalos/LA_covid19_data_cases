@@ -12,7 +12,7 @@ def suites_and_bldgs_in_address(address):
 	for i in addresses.str.split(','):
         if(re.search('^Ste.|^ Ste.|^Bldg.|^ Bldg.', i[1])):
             return True 
-        return false
+        return False
 
 
 def parse_address(DF, address):
