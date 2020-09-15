@@ -10,9 +10,9 @@ def suites_and_bldgs_in_address(address):
     Output: True/False
     """
     for i in address.str.split(','):
-        # if(re.search('^Ste.|^ Ste.|^Bldg.|^ Bldg.', i[1])):
+        if(re.search('^Ste.|^ Ste.|^Bldg.|^ Bldg.', i[1])):
         # if(re.search('^ Ste.|^ Bldg.', i[1])):
-        if(len(i)==5):
+        # if(len(i)==5):
             return True 
         return False
 
