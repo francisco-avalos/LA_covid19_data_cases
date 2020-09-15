@@ -10,7 +10,8 @@ def suites_and_bldgs_in_address(address):
     Output: True/False
     """
     for i in address.str.split(','):
-        if(re.search('^Ste.|^ Ste.|^Bldg.|^ Bldg.', i[1])):
+        # if(re.search('^Ste.|^ Ste.|^Bldg.|^ Bldg.', i[1])):
+        if(re.search('^ Ste.|^ Bldg.', i[1])):
             return True 
         return False
 
@@ -27,7 +28,8 @@ def parse_address(DF, address):
         streets2 = []
 
         for i in address.str.split(','):
-            if(re.search('^Ste.|^ Ste.|^Bldg.|^ Bldg.', i[1])):
+            # if(re.search('^Ste.|^ Ste.|^Bldg.|^ Bldg.', i[1])):
+            if(re.search('^ Ste.|^ Bldg.', i[1])):
                 streets1.append([i[0], i[2], i[3], i[4]])
             else:
                 streets2a.append(i)
