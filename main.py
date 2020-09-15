@@ -49,12 +49,12 @@ NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings(Parsed).csv', index=
 
 # ### Homeless Service Settings
 
-# lac_hss_string, No_columns = lac_hss_section()
-# cases = return_cases(lac_hss_string)
-# HSS_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-# HSS_DF = hss_df(HSS_DF)
+lac_hss_string, No_columns = lac_hss_section()
+cases = return_cases(lac_hss_string)
+HSS_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+HSS_DF = hss_df(HSS_DF)
 
-# HSS_DF.to_csv(r'~/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
+HSS_DF.to_csv(r'~/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
 
 
 
