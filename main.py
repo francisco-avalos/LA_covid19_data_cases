@@ -46,6 +46,8 @@ del NR_DF['empty']
 
 NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings(Parsed).csv', index=False)
 
+
+
 # ### Homeless Service Settings
 
 # lac_hss_string, No_columns = lac_hss_section()
