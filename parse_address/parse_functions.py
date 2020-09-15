@@ -45,9 +45,6 @@ def parse_address(DF, address):
 
     streets = pd.DataFrame(streets)
 
-    if(DF['empty']):
-        del DF['empty']
-
     DF = pd.concat([DF, streets], axis=1)
 
     return DF
