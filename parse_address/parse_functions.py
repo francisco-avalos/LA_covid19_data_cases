@@ -19,12 +19,22 @@ def parse_address(DF, address):
 	"""
 	Function splits addresses 
 	"""
+	if suites_and_bldgs_in_address(address):
+		streets1 = []
+		streets2 = []
 
+		for i in address.str.split(','):
+            if(re.search('^Ste.|^ Ste.|^Bldg.|^ Bldg.', i[1])):
+            	streets1.append([i[0], i[2], i[3], i[4]])
+            else:
+            	streets2a.append(i)
+        streets = streets1 + streets2
 
-	streets = []
+    if !(suites_and_bldgs_in_address(address)):
+        streets = []
 
-	for i in address.str.split(','):
-		streets.append(i)
+        for i in address.str.split(','):
+            streets.append(i)
 
 	streets = pd.DataFrame(streets)
 
