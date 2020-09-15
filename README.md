@@ -1,10 +1,10 @@
-This repository web scrapes point of interest cases data from the Los Angeles Public Health website - http://publichealth.lacounty.gov/media/Coronavirus/locations.htm
+This repository web scrapes point of interest (POI) cases data from the Los Angeles Public Health website - http://publichealth.lacounty.gov/media/Coronavirus/locations.htm
 
-This is a great way for individuals to obtain and study Covid-19 cases data at the point of interest  (POI) level across the Los Angeles County. This is also helpful since the website currently has no built in API. 
+This is a great way for individuals to obtain and study Covid-19 cases data at the POI level across the Los Angeles County. This is also helpful since the website currently has no built in API. 
 
 Specifically, it pulls cases by POI in the following 4 sections:
 * Residential Congregate and Acute Care Settings
-* Los Angeles Conuty Non-Residential Settings
+* Los Angeles County Non-Residential Settings
 * Los Angeles County Homeless Service Settings
 * Los Angeles County Educational Settings
 
