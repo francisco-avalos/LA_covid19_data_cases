@@ -33,7 +33,7 @@ def parse_address(DF, address):
                 streets2a.append(i)
         streets = streets1 + streets2
 
-    if !(suites_and_bldgs_in_address(address)):
+    if !suites_and_bldgs_in_address(address):
         streets = []
 
         for i in address.str.split(','):
