@@ -60,10 +60,16 @@ HSS_DF.to_csv(r'~/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
 
 # ### Educational Settings
 
-# lac_es_string, No_columns = lac_es_section()
-# cases = return_cases(lac_es_string)
-# ES_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-# ES_DF = es_df(ES_DF)
+lac_es_string, No_columns = lac_es_section()
+cases = return_cases(lac_es_string)
+ES_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+ES_DF = es_df(ES_DF)
 
-# ES_DF.to_csv(r'~/Desktop/LA_County_Educational_Settings.csv', index=False)
+ES_DF.to_csv(r'~/Desktop/LA_County_Educational_Settings.csv', index=False)
+
+ES_DF = parse_address(ES_DF, ES_DF['address'])
+ES_DF.columns = ['location_name','address','total_confirmed_staff','total_confirmed__students','street_address','city','state',
+                 'zipcode']
+
+ES_DF.to_csv(r'~/Desktop/LA_County_Educational_Settings(Parsed).csv', index=False)
 
