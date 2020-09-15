@@ -24,22 +24,16 @@ def parse_address(DF, address):
     Input: dataframe, address list
     Output: dataframe
     """
-    if suites_and_bldgs_in_address(address):
-        streets1 = []
-        streets2 = []
+    streets = []
 
+    if suites_and_bldgs_in_address(address):
         for i in address.str.split(','):
-            # if(re.search('^Ste.|^ Ste.|^Bldg.|^ Bldg.', i[1])):
-            # if(re.search('^ Ste.|^ Bldg.', i[1])):
             if(len(i)==5):
-                streets1.append([i[0], i[2], i[3], i[4]])
-            else:
-                streets2a.append(i)
-        streets = streets1 + streets2
+                streets.append([i[0], i[2], i[3], i[4]])
+            if(len(i)==4)
+                streets.append(i)
 
     if not suites_and_bldgs_in_address(address):
-        streets = []
-
         for i in address.str.split(','):
             streets.append(i)
 
