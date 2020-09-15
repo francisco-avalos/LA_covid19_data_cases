@@ -9,12 +9,15 @@ def suites_and_bldgs_in_address(address):
     Input: list
     Output: True/False
     """
+    trigger = False
+
     for i in address.str.split(','):
         if(re.search('^Ste.|^ Ste.|^Bldg.|^ Bldg.', i[1])):
         # if(re.search('^ Ste.|^ Bldg.', i[1])):
         # if(len(i)==5):
-            return True 
-        return False
+            trigger = True
+            break
+    return trigger
 
 
 def parse_address(DF, address):
