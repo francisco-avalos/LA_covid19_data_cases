@@ -17,7 +17,10 @@ def suites_and_bldgs_in_address(address):
 
 def parse_address(DF, address):
 	"""
-	Function splits addresses 
+	Function splits an address in the dataframe into street, city, state, and zip code as separate columns.
+	It uses the suites_and_bldgs_in_address function to account for suites and buildings in the address parser.
+	Input: dataframe, address list
+	Output: dataframe
 	"""
 	if suites_and_bldgs_in_address(address):
 		streets1 = []
