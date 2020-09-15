@@ -38,7 +38,6 @@ ES_DF = es_df(ES_DF)
 ES_DF.to_csv(r'~/Desktop/LA_County_Educational_Settings.csv', index=False)
 
 
-
 p1, p2, p3, No_columns = LAC_NR_section()
 cases  = return_cases_NonResidential(p1, p2, p3)
 NR_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
