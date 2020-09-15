@@ -11,7 +11,7 @@ from parse_address.parse_functions import parse_address
 
 
 
-
+### Residential Congragate Settings
 
 rcac_string, No_columns = rcac_section()
 cases = return_cases(rcac_string)
@@ -28,6 +28,20 @@ RCAC_DF.columns = ['location_name','city_name','number_of_confirmed_staff','numb
 RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings(Parsed).csv', index=False)
 
 
+
+### Non-Residential Settings
+
+p1, p2, p3, No_columns = LAC_NR_section()
+cases  = return_cases_NonResidential(p1, p2, p3)
+NR_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+NR_DF = nr_df(NR_DF)
+
+NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings.csv', index=False)
+
+
+
+### Homeless Service Settings
+
 lac_hss_string, No_columns = lac_hss_section()
 cases = return_cases(lac_hss_string)
 HSS_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
@@ -36,6 +50,9 @@ HSS_DF = hss_df(HSS_DF)
 HSS_DF.to_csv(r'~/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
 
 
+
+### Educational Settings
+
 lac_es_string, No_columns = lac_es_section()
 cases = return_cases(lac_es_string)
 ES_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
@@ -43,13 +60,6 @@ ES_DF = es_df(ES_DF)
 
 ES_DF.to_csv(r'~/Desktop/LA_County_Educational_Settings.csv', index=False)
 
-
-p1, p2, p3, No_columns = LAC_NR_section()
-cases  = return_cases_NonResidential(p1, p2, p3)
-NR_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-NR_DF = nr_df(NR_DF)
-
-NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings.csv', index=False)
 
 
 
