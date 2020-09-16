@@ -1,6 +1,7 @@
 
 import requests
 import re
+import pandas as pd
 
 from bs4 import BeautifulSoup
 from functions.web_scrape import search_start_end, remove_tabs_and_obs
