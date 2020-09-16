@@ -58,6 +58,7 @@ def return_cases(search_input):
 
     return la_cases
 
+
 def return_cases_NonResidential(pattern1, pattern2, pattern3):
     """
     Function scans the LA Public Health Care website and returns a list of the targetted data information. It's
@@ -117,6 +118,7 @@ def rcac_df(DF):
 
     return DF
 
+
 def hss_df(DF):
     """
     Function cleans up the column types for the LA county Homeless Service Settings dataframe 
@@ -131,6 +133,7 @@ def hss_df(DF):
 
     return DF
 
+
 def es_df(DF):
     """
     Function cleans up the column types for the LA county educational settings dataframe
@@ -143,6 +146,7 @@ def es_df(DF):
 
     return DF
 
+
 def nr_df(DF):
     """
     Function cleans up the column types for the LA county Non-Residential settings dataframe
@@ -154,28 +158,6 @@ def nr_df(DF):
     DF['total_non_confirmed_symptomatic_staff'] = DF['total_non_confirmed_symptomatic_staff'].astype(int)
 
     return DF
-
-
-def get_LA_cities_and_zipcodes_from_LAAlmanac():
-    """
-    Function webscrapes the cities and their zipcodes from www.laalmanac.com
-    Input: None
-    Ouutput: Dataframe 
-    """
-    communities, zipcodes = extract_communities_and_zipcodes()
-    Community_DF, ZipCodes_DF = community_string_parser(communities, zipcodes)
-
-    LA_DF = pd.Dataframe(columns=('City', 'postal_code'))
-    Z1 = []
-    
-    for i in range(len(ZipCodes_DF)):
-        Z1.append(ZipCodes_DF[i].split(', ')[0]) # going with the first zip code in each community
-    
-    LA_DF['City'] = Community_DF
-    LA_DF['postal_code'] = Z1
-
-    return LA_DF
-
 
 
 def extract_communities_and_zipcodes():
@@ -242,8 +224,25 @@ def community_string_parser(communities, zipcodes):
     return cities, zips
 
 
+def get_LA_cities_and_zipcodes_from_LAAlmanac():
+    """
+    Function webscrapes the cities and their zipcodes from www.laalmanac.com
+    Input: None
+    Ouutput: Dataframe 
+    """
+    communities, zipcodes = extract_communities_and_zipcodes()
+    Community_DF, ZipCodes_DF = community_string_parser(communities, zipcodes)
 
+    LA_DF = pd.Dataframe(columns=('City', 'postal_code'))
+    Z1 = []
+    
+    for i in range(len(ZipCodes_DF)):
+        Z1.append(ZipCodes_DF[i].split(', ')[0]) # going with the first zip code in each community
+    
+    LA_DF['City'] = Community_DF
+    LA_DF['postal_code'] = Z1
 
+    return LA_DF
 
 
 
