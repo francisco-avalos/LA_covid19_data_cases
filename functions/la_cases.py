@@ -178,15 +178,18 @@ def extract_communities_and_zipcodes():
     c = 1
     
     for index in range(len(td_data)):
+
         if (c % 2) != 0:
             community = td_data[index].text.strip()
             idx = int(index/2)
             communities[idx] = community
+        
         if (c % 2) != 0:
             zip_code = td_data[index+1].text.strip()
             idx = int(index/2)
             zipcodes[idx] = zip_code
-    c+=1
+        
+        c+=1
 
     return communities, zipcodes
 
@@ -243,7 +246,7 @@ def get_LA_cities_and_zipcodes_from_LAAlmanac():
     for i in range(len(ZipCodes_DF)):
         Z1.append(ZipCodes_DF[i].split(', ')[0]) # going with the first zip code in each community
     
-    LA_DF['City'] = Community_DF
+    LA_DF['city'] = Community_DF
     LA_DF['postal_code'] = Z1
 
     return LA_DF
@@ -257,7 +260,7 @@ def add_ZipCode(DF):
     """
     la_community_df = get_LA_cities_and_zipcodes_from_LAAlmanac()
 
-    DF = pd.merge(DF, la_community_df, on='city', how='left')
+    DF = pd.merge(DF, la_community_df, on=['city'], how='left')
 
     return DF
 
