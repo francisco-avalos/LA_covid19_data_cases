@@ -154,3 +154,97 @@ def nr_df(DF):
     DF['total_non_confirmed_symptomatic_staff'] = DF['total_non_confirmed_symptomatic_staff'].astype(int)
 
     return DF
+
+
+def get_LA_cities_and_zipcodes_from_LAAlmanac():
+    """
+    Function webscrapes the cities and their zipcodes from www.laalmanac.com
+    Input: None
+    Ouutput: Dataframe 
+    """
+    communities, zipcodes = extract_communities_and_zipcodes()
+    Community_DF, ZipCodes_DF = community_string_parser(communities, zipcodes)
+
+    LA_DF = pd.Dataframe(columns=('City', 'postal_code'))
+    Z1 = []
+    
+    for i in range(len(ZipCodes_DF)):
+        Z1.append(ZipCodes_DF[i].split(', ')[0]) # going with the first zip code in each community
+    
+    LA_DF['City'] = Community_DF
+    LA_DF['postal_code'] = Z1
+
+    return LA_DF
+
+
+
+def extract_communities_and_zipcodes():
+    """
+    Function description
+    """
+    url = 'http://www.laalmanac.com/communications/cm02_communities.php'
+    req = requests.get(url)
+    soup = BeautifulSoup(req.text, 'html.parser')
+    td_data = soup.find_all('td')
+
+    # Extract comminity and zip code data
+    communities = {}
+    zipcodes = {}
+    
+    c = 1
+    
+    for index in range(len(td_data)):
+        if (c % 2) != 0:
+            community = td_data[index].text.strip()
+            idx = int(index/2)
+            communities[idx] = community
+        if (c % 2) != 0:
+            zip_code = td_data[index+1].text.strip()
+            idx = int(index/2)
+            zipcodes[idx] = zip_code
+    c+=1
+
+    return communities, zipcodes
+
+
+def community_string_parser(communities, zipcodes):
+    """
+    Function cleans out the string names of the web sraped 
+    """
+    communities_and_zips = []
+    cities = []
+    zips = []
+
+    for i in zipcodes:
+        communities_and_zips.append(communities[i] + '---' + zipcodes[i])
+
+    for i in communities_and_zips:
+        city = i.split('---')[0]
+
+        item = re.sub(r"(^Los.Angeles.|\(Los Angeles\)|PO Boxes|\/.*)", "", city.strip())
+    
+        item = re.sub(r"(^Pasadena.*)", "Pasadena", item)
+        item = re.sub(r"(^Alhambra.*)", "Alhambra", item)
+        item = re.sub(r"(^Downtown.*)", "Downtown", item)
+        item = re.sub(r"(.*Long Beach.*)", "Long Beach", item)
+        item = re.sub(r"(Santa Clarita )", "", item)
+
+        item = re.sub(r"(Rancho Dominguez.*)", "West Rancho Dominguez", item) # Officially 'West Rancho Dominguez'
+        item = re.sub(r"(Los Angeles International Airport.*)", "Los Angeles", item) # ME: get's 'Los Angeles' 
+        item = re.sub(r"(\(|\))", "", item.strip())
+        item = re.sub(r" $","", item)
+
+        cities.append(item)
+
+        zipcode = i.split('---')[1]
+        zips.append(zipcode)
+
+    return cities, zips
+
+
+
+
+
+
+
+
