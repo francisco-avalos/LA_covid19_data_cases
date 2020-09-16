@@ -162,7 +162,9 @@ def nr_df(DF):
 
 def extract_communities_and_zipcodes():
     """
-    Function description
+    Function web scrapes data from www.laalmanac.com and produces 2 lists - for communities and zip codes
+    Input: None
+    Ouput: 2 lists
     """
     url = 'http://www.laalmanac.com/communications/cm02_communities.php'
     req = requests.get(url)
@@ -191,7 +193,9 @@ def extract_communities_and_zipcodes():
 
 def community_string_parser(communities, zipcodes):
     """
-    Function cleans out the string names of the web sraped 
+    Function cleans out and refines the string names of web sraped data
+    Input: 2 lists 
+    Output: 2 lists
     """
     communities_and_zips = []
     cities = []
@@ -233,7 +237,7 @@ def get_LA_cities_and_zipcodes_from_LAAlmanac():
     communities, zipcodes = extract_communities_and_zipcodes()
     Community_DF, ZipCodes_DF = community_string_parser(communities, zipcodes)
 
-    LA_DF = pd.Dataframe(columns=('City', 'postal_code'))
+    LA_DF = pd.Dataframe(columns=('city', 'postal_code'))
     Z1 = []
     
     for i in range(len(ZipCodes_DF)):
@@ -245,5 +249,15 @@ def get_LA_cities_and_zipcodes_from_LAAlmanac():
     return LA_DF
 
 
+def add_ZipCode(DF):
+    """
+    Function adds zip-codes to the given dataframe - intended for Residential Congregaste Settings
+    Input: dataframe
+    Output: Dataframe
+    """
+    la_community_df = get_LA_cities_and_zipcodes_from_LAAlmanac()
 
+    DF = pd.merge(DF, la_community_df, on='city', how='left')
+
+    return DF
 
