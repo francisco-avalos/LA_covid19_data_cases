@@ -240,7 +240,7 @@ def get_LA_cities_and_zipcodes_from_LAAlmanac():
     communities, zipcodes = extract_communities_and_zipcodes()
     Community_DF, ZipCodes_DF = community_string_parser(communities, zipcodes)
 
-    LA_DF = pd.Dataframe(columns=('city', 'postal_code'))
+    LA_DF = pd.DataFrame(columns=('city', 'postal_code'))
     Z1 = []
     
     for i in range(len(ZipCodes_DF)):
