@@ -10,4 +10,5 @@ Specifically, it pulls cases by POI in the following 4 sections:
 
 Two files for each section is exported into csv files: (1) as the 'as-seen' format and (2) as 'as-seen' with the addition of the address parsed out into street, city, state, and zip-code
 
+## Instructions
 Installation requirements for Python files:  use 'pip install -r requirements.txt'
