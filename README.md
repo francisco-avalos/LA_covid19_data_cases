@@ -19,5 +19,5 @@ Two files for each section is exported into csv files. The first file is exactly
 
 ***For location purposes, the Residential Congregate Settings file also has a third file that adds zip code to the POI. Zip codes here were web scraped and matched using the [LA Almanac](http://www.laalmanac.com/communications/cm02_communities.php)**
 
----
+—
 
