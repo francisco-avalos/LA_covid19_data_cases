@@ -32,7 +32,7 @@ RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings(Parsed).c
 
 RCAC_DF = add_ZipCode(RCAC_DF)
 
-RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings(Parsed + ZipCode).csv', index=False)
+RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings(Parsed_and_ZipCode).csv', index=False)
 
 
 ### Non-Residential Settings
