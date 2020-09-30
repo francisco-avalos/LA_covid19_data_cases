@@ -22,4 +22,4 @@ Two files for each section is exported into csv files. The first file is exactly
 
 ## In Google Colab
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ExWvM99PE5fRvo9KAadakO28pYAT39XX#scrollTo=LY4C6XnSUQ3Q)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ExWvM99PE5fRvo9KAadakO28pYAT39XX?usp=sharing)
