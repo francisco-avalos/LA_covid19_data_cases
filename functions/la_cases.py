@@ -153,9 +153,10 @@ def nr_df(DF):
     Input: dataframe
     Output: dataframe
     """
-    DF.columns=['location_name', 'address', 'total_confirmed_staff', 'total_non_confirmed_symptomatic_staff']
+    # DF.columns=['location_name', 'address', 'total_confirmed_staff', 'total_non_confirmed_symptomatic_staff']
+    DF.columns=['location_name', 'address', 'total_confirmed_staff']
     DF['total_confirmed_staff'] = DF['total_confirmed_staff'].astype(int)
-    DF['total_non_confirmed_symptomatic_staff'] = DF['total_non_confirmed_symptomatic_staff'].astype(int)
+    # DF['total_non_confirmed_symptomatic_staff'] = DF['total_non_confirmed_symptomatic_staff'].astype(int)
 
     return DF
 
