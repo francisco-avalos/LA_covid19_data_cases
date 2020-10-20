@@ -13,7 +13,7 @@ def suites_and_bldgs_in_address(address):
     trigger = False
 
     for i in address.str.split(','):
-        if(re.search('^Ste.|^ Ste.|^Bldg.|^ Bldg.', i[1])):
+        if(re.search('^Ste.|^ Ste.|^Bldg.|^ Bldg.|^Suite.|^ Suite.|^#2.|#^ #2.', i[1])):
         # if(re.search('^ Ste.|^ Bldg.', i[1])):
         # if(len(i)==5):
             trigger = True
