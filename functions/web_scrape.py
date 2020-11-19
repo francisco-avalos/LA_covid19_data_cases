@@ -91,7 +91,7 @@ def LAC_NR_section():
     pattern_1 = 'Los Angeles County '
     pattern_2 = 'Non-Residential'
     pattern_3 = ' Settings Meeting the Criteria of Three or More '
-    column_size = 3
+    column_size = 4
 
     return pattern_1, pattern_2, pattern_3, column_size
 

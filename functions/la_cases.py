@@ -157,7 +157,9 @@ def nr_df(DF):
     # DF['total_non_confirmed_symptomatic_staff'] = DF['total_non_confirmed_symptomatic_staff'].astype(int)
     """
 
-    DF.columns=['location_name', 'address', 'total_confirmed_staff']
+
+    # DF.columns=['location_name', 'address', 'total_confirmed_staff']
+    DF.columns=['location_name', 'address', 'total_confirmed_staff', 'total_confirmed_non_staff']
     DF['total_confirmed_staff'] = DF['total_confirmed_staff'].astype(int)
     
 
