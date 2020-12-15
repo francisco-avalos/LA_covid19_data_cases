@@ -36,6 +36,8 @@ def parse_address(DF, address):
                 streets.append([i[0], i[2], i[3], i[4]])
             if(len(i)==4):
                 streets.append(i)
+            if(len(i)==2):
+                streets.append(i)
 
     if not suites_and_bldgs_in_address(address):
         for i in address.str.split(','):
