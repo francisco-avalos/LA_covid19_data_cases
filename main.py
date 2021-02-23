@@ -36,7 +36,7 @@ RCAC_DF = add_ZipCode(RCAC_DF)
 RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings(Parsed_and_ZipCode).csv', index=False)
 
 
-# ## Non-Residential Settings
+## Non-Residential Settings
 
 p1, p2, p3, No_columns = LAC_NR_section()
 cases  = return_cases_NonResidential(p1, p2, p3)
@@ -57,7 +57,7 @@ NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings(Parsed).csv', index=
 
 
 
-# # ## Homeless Service Settings
+# ## Homeless Service Settings
 
 lac_hss_string, No_columns = lac_hss_section()
 cases = return_cases(lac_hss_string)
@@ -68,7 +68,7 @@ HSS_DF.to_csv(r'~/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
 
 
 
-## Educational Settings
+# Educational Settings
 
 lac_es_string, No_columns = lac_es_section()
 cases = return_cases(lac_es_string)
