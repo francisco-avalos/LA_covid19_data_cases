@@ -16,24 +16,24 @@ from functions.la_cases import add_ZipCode
 
 ## Residential Congragate Settings
 
-rcac_string, No_columns = rcac_section()
-cases = return_cases(rcac_string)
+# rcac_string, No_columns = rcac_section()
+# cases = return_cases(rcac_string)
 
-RCAC_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-RCAC_DF = rcac_df(RCAC_DF)
+# RCAC_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+# RCAC_DF = rcac_df(RCAC_DF)
 
-RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
+# RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
 
 
-RCAC_DF = parse_address(RCAC_DF, RCAC_DF['city_name'])
-RCAC_DF.columns = ['location_name','city_name','number_of_confirmed_staff','number_of_confirmed_residents','total_deaths','city',
-                'state']
+# RCAC_DF = parse_address(RCAC_DF, RCAC_DF['city_name'])
+# RCAC_DF.columns = ['location_name','city_name','number_of_confirmed_staff','number_of_confirmed_residents','total_deaths','city',
+#                 'state']
 
-RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings(Parsed).csv', index=False)
+# RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings(Parsed).csv', index=False)
 
-RCAC_DF = add_ZipCode(RCAC_DF)
+# RCAC_DF = add_ZipCode(RCAC_DF)
 
-RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings(Parsed_and_ZipCode).csv', index=False)
+# RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings(Parsed_and_ZipCode).csv', index=False)
 
 
 ## Non-Residential Settings
