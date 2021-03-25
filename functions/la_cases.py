@@ -149,6 +149,51 @@ def return_cases_ResCong(pat1, pat2, pat3, pat4, pat5):
 
     return la_cases
 
+# Wed March 24, 2021
+def return_cases_home(pat1, pat2, pat3, pat4, pat5):
+    """
+    Function scans the LA Public Health Care website and returns a list of the targetted data information. It's
+    particularly designed to capture the homeless data since the title web-page is designed with several indentions
+    Input: string variables
+    Output: list
+    """
+
+    soup_strings = []
+    for string in soup.strings:
+        soup_strings.append(string)
+
+    maxi = len(soup_strings)
+    i = 0
+    data_extract = []
+    la_cases = []
+
+    while (i <= maxi):
+        if((soup_strings[i] == str(pat1)) & (soup_strings[i+1] == str(pat2)) & (soup_strings[i+2] == str(pat3))  & (soup_strings[i+3] == str(pat4)) & (soup_strings[i+4] == str(pat5))):
+            length = len(soup_strings[i:])
+            start = len(soup_strings) - length
+            end = start + length
+            stop = 'Total'
+            placeholder=str()
+
+            while ((start <= end) & (placeholder != stop)):
+                placeholder = soup_strings[start]
+                data_extract.append(soup_strings[start])
+                start+=1
+
+            data_start,data_end = search_start_end(data_extract)
+
+            for i in range(len(data_extract)):
+                if ((i >= data_start) & (i <= data_end)):
+                    la_cases.append(data_extract[i])
+            break
+        i+=1
+
+    del data_extract, i, maxi, data_start, data_end, length
+
+    la_cases = remove_tabs_and_obs(la_cases)
+
+    return la_cases
+
 
 
 def rcac_df(DF):
