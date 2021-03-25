@@ -38,22 +38,22 @@ from functions.la_cases import add_ZipCode
 
 # Non-Residential Settings
 
-p1, p2, p3, No_columns = LAC_NR_section()
-cases  = return_cases_NonResidential(p1, p2, p3)
-NR_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-NR_DF = nr_df(NR_DF)
+p1, p2, p3, p4, p5, p6, p7, No_columns = LAC_NR_section()
+cases  = return_cases_NonResidential(p1, p2, p3, p4, p5, p6, p7)
+# NR_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+# NR_DF = nr_df(NR_DF)
 
-NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings.csv', index=False)
+# NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings.csv', index=False)
 
-NR_DF = parse_address(NR_DF, NR_DF['address'])
+# NR_DF = parse_address(NR_DF, NR_DF['address'])
 
-NR_DF.columns = ['location_name','address','total_confirmed_staff','total_confirmed_non_staff','street_address','city',
-                 'state','zipcode']
-# NR_DF.columns = ['location_name','address','total_confirmed_staff','street_address','city','state','zipcode']
-# NR_DF.columns = ['location_name','address','total_confirmed_staff','total_non_confirmed_symptomatic_staff','street_address','city',
+# NR_DF.columns = ['location_name','address','total_confirmed_staff','total_confirmed_non_staff','street_address','city',
 #                  'state','zipcode']
+# # NR_DF.columns = ['location_name','address','total_confirmed_staff','street_address','city','state','zipcode']
+# # NR_DF.columns = ['location_name','address','total_confirmed_staff','total_non_confirmed_symptomatic_staff','street_address','city',
+# #                  'state','zipcode']
 
-NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings(Parsed).csv', index=False)
+# NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings(Parsed).csv', index=False)
 
 
 
