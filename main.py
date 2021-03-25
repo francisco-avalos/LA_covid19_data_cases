@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from functions.web_scrape import convert_scrapped_data_to_dataframe
-from functions.la_cases import return_cases, return_cases_NonResidential, rcac_df, hss_df, es_df, nr_df, return_cases_ResCong
+from functions.la_cases import return_cases, return_cases_NonResidential, rcac_df, hss_df, es_df, nr_df, return_cases_ResCong, return_cases_home
 from functions.web_scrape import rcac_section, LAC_NR_section, lac_hss_section, lac_es_section
 
 from parse_address.parse_functions import parse_address
@@ -60,7 +60,7 @@ from functions.la_cases import add_ZipCode
 # # ## Homeless Service Settings
 
 pat1, pat2, pat3, pat4, pat5, No_columns = lac_hss_section()
-# cases = return_cases(lac_hss_string)
+cases = return_cases_home(pat1, pat2, pat3, pat4, pat5)
 # HSS_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
 # HSS_DF = hss_df(HSS_DF)
 
