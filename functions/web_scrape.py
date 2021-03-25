@@ -131,10 +131,13 @@ def lac_es_section():
     Input: None
     Output: a string and integer
     """
-    education_string = 'Los Angeles County Educational Settings Meeting the Criteria of Three or More '
+    # education_string = 'Los Angeles County Educational Settings Meeting the Criteria of Three or More '
+    pat1 = 'Active Outbreaks at Educational Settings with Three or More '
+    pat2 = 'Laboratory-confirmed'
+    pat3 = ' COVID-19 Cases'
     column_size = 4
 
-    return education_string, column_size
+    return pat1, pat2, pat3, column_size
 
 
 
