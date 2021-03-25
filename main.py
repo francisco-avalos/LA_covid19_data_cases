@@ -61,10 +61,10 @@ from functions.la_cases import add_ZipCode
 
 pat1, pat2, pat3, pat4, pat5, No_columns = lac_hss_section()
 cases = return_cases_home(pat1, pat2, pat3, pat4, pat5)
-# HSS_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-# HSS_DF = hss_df(HSS_DF)
+HSS_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+HSS_DF = hss_df(HSS_DF)
 
-# HSS_DF.to_csv(r'~/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
+HSS_DF.to_csv(r'~/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
 
 
 
