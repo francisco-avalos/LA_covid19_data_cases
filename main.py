@@ -18,7 +18,7 @@ from functions.la_cases import add_ZipCode
 
 # rcac_string, No_columns = rcac_section()
 r1, r2, r3, r4, r5, No_columns = rcac_section()
-print(r1)
+cases = return_cases_ResCong(r1, r2, r3, r4, r5)
 # cases = return_cases(rcac_string)
 
 # RCAC_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
