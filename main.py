@@ -59,29 +59,29 @@ from functions.la_cases import add_ZipCode
 
 # # ## Homeless Service Settings
 
-pat1, pat2, pat3, pat4, pat5, No_columns = lac_hss_section()
-cases = return_cases_home(pat1, pat2, pat3, pat4, pat5)
-HSS_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-HSS_DF = hss_df(HSS_DF)
+# pat1, pat2, pat3, pat4, pat5, No_columns = lac_hss_section()
+# cases = return_cases_home(pat1, pat2, pat3, pat4, pat5)
+# HSS_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+# HSS_DF = hss_df(HSS_DF)
 
-HSS_DF.to_csv(r'~/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
+# HSS_DF.to_csv(r'~/Desktop/LA_County_Homeless_Service_Settings.csv', index=False)
 
 
 
-# # Educational Settings
+# Educational Settings
 
-# lac_es_string, No_columns = lac_es_section()
-# cases = return_cases(lac_es_string)
-# ES_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-# ES_DF = es_df(ES_DF)
+lac_es_string, No_columns = lac_es_section()
+cases = return_cases(lac_es_string)
+ES_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+ES_DF = es_df(ES_DF)
 
-# ES_DF.to_csv(r'~/Desktop/LA_County_Educational_Settings.csv', index=False)
+ES_DF.to_csv(r'~/Desktop/LA_County_Educational_Settings.csv', index=False)
 
-# # print(ES_DF)
-# ES_DF = parse_address(ES_DF, ES_DF['address'])
-# # print(ES_DF.head(60))
-# ES_DF.columns = ['location_name','address','total_confirmed_staff','total_confirmed_students','street_address','city','state',
-#                  'zipcode']
+# print(ES_DF)
+ES_DF = parse_address(ES_DF, ES_DF['address'])
+# print(ES_DF.head(60))
+ES_DF.columns = ['location_name','address','total_confirmed_staff','total_confirmed_students','street_address','city','state',
+                 'zipcode']
 
-# ES_DF.to_csv(r'~/Desktop/LA_County_Educational_Settings(Parsed).csv', index=False)
+ES_DF.to_csv(r'~/Desktop/LA_County_Educational_Settings(Parsed).csv', index=False)
 
