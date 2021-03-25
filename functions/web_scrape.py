@@ -74,10 +74,16 @@ def rcac_section():
     Input: None
     Output: a string and integer
     """
-    RCAC_string = 'Residential Congregate and Acute Care Settings Meeting the Criteria of (1) At Least One Laboratory-confirmed Resident or (2) Two or More Laboratory-confirmed Staff in Long-Term Care Facilities that are not Skilled Nursing Facilities, or (3) Three or More Laboratory-Confirmed Staff in Shared Housing'
+    # RCAC_string = 'Residential Congregate and Acute Care Settings Meeting the Criteria of (1) At Least One Laboratory-confirmed Resident or (2) Two or More Laboratory-confirmed Staff in Long-Term Care Facilities that are not Skilled Nursing Facilities, or (3) Three or More Laboratory-Confirmed Staff in Shared Housing'
+    rcac_string1 = 'Active Outbreaks at Residential Congregate and Acute Care Settings with (1) At Least One '
+    rcac_string2 = 'Laboratory-confirmed'
+    rcac_string3 = ' Resident, or (2) Two or More Laboratory-confirmed Staff in Long-Term Care Facilities that are not Skilled Nursing Facilities, or (3) Three or More '
+    rcac_string4 = 'Laboratory-Confirmed'
+    rcac_string5 = ' Staff in Shared Housing'
     column_size = 5
 
-    return RCAC_string, column_size
+    # return RCAC_string, column_size
+    return rcac_string1, rcac_string2, rcac_string3, rcac_string4, rcac_string5, column_size
 
 def LAC_NR_section():
     """
