@@ -16,14 +16,13 @@ from functions.la_cases import add_ZipCode
 
 # Residential Congragate Settings
 
-# rcac_string, No_columns = rcac_section()
-r1, r2, r3, r4, r5, No_columns = rcac_section()
-cases = return_cases_ResCong(r1, r2, r3, r4, r5)
+# r1, r2, r3, r4, r5, No_columns = rcac_section()
+# cases = return_cases_ResCong(r1, r2, r3, r4, r5)
 
-RCAC_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-RCAC_DF = rcac_df(RCAC_DF)
+# RCAC_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+# RCAC_DF = rcac_df(RCAC_DF)
 
-RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
+# RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
 
 
 # RCAC_DF = parse_address(RCAC_DF, RCAC_DF['city_name'])
@@ -37,24 +36,24 @@ RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', ind
 # RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings(Parsed_and_ZipCode).csv', index=False)
 
 
-# # Non-Residential Settings
+# Non-Residential Settings
 
-# p1, p2, p3, No_columns = LAC_NR_section()
-# cases  = return_cases_NonResidential(p1, p2, p3)
-# NR_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-# NR_DF = nr_df(NR_DF)
+p1, p2, p3, No_columns = LAC_NR_section()
+cases  = return_cases_NonResidential(p1, p2, p3)
+NR_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+NR_DF = nr_df(NR_DF)
 
-# NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings.csv', index=False)
+NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings.csv', index=False)
 
-# NR_DF = parse_address(NR_DF, NR_DF['address'])
+NR_DF = parse_address(NR_DF, NR_DF['address'])
 
-# NR_DF.columns = ['location_name','address','total_confirmed_staff','total_confirmed_non_staff','street_address','city',
+NR_DF.columns = ['location_name','address','total_confirmed_staff','total_confirmed_non_staff','street_address','city',
+                 'state','zipcode']
+# NR_DF.columns = ['location_name','address','total_confirmed_staff','street_address','city','state','zipcode']
+# NR_DF.columns = ['location_name','address','total_confirmed_staff','total_non_confirmed_symptomatic_staff','street_address','city',
 #                  'state','zipcode']
-# # NR_DF.columns = ['location_name','address','total_confirmed_staff','street_address','city','state','zipcode']
-# # NR_DF.columns = ['location_name','address','total_confirmed_staff','total_non_confirmed_symptomatic_staff','street_address','city',
-# #                  'state','zipcode']
 
-# NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings(Parsed).csv', index=False)
+NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings(Parsed).csv', index=False)
 
 
 
