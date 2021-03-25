@@ -94,12 +94,19 @@ def LAC_NR_section():
     Input: None
     Output: a stringa and integer
     """
-    pattern_1 = 'Los Angeles County '
-    pattern_2 = 'Non-Residential'
-    pattern_3 = ' Settings Meeting the Criteria of Three or More '
+    # pattern_1 = 'Los Angeles County '
+    # pattern_2 = 'Non-Residential'
+    # pattern_3 = ' Settings Meeting the Criteria of Three or More '
+    pat1 = 'Active Outbreaks at '
+    pat2 = 'Non-Residential'
+    pat3 = ' Settings with Three or More '
+    pat4 = 'Laboratory-confirmed'
+    pat5 = ' '
+    pat6 = 'COVID-19'
+    pat7 = ' Cases'
     column_size = 4
 
-    return pattern_1, pattern_2, pattern_3, column_size
+    return pat1, pat2, pat3, pat4, pat5, pat6, pat7, column_size
 
 
 def lac_hss_section():
