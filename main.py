@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from functions.web_scrape import convert_scrapped_data_to_dataframe
-from functions.la_cases import return_cases, return_cases_NonResidential, rcac_df, hss_df, es_df, nr_df, return_cases_ResCong, return_cases_home
+from functions.la_cases import return_cases, return_cases_NonResidential, rcac_df, hss_df, es_df, nr_df, return_cases_ResCong, return_cases_home, return_cases_educational
 from functions.web_scrape import rcac_section, LAC_NR_section, lac_hss_section, lac_es_section
 
 from parse_address.parse_functions import parse_address
@@ -70,8 +70,8 @@ from functions.la_cases import add_ZipCode
 
 # Educational Settings
 
-lac_es_string, No_columns = lac_es_section()
-cases = return_cases(lac_es_string)
+pat1, pat2, pat3, No_columns = lac_es_section()
+cases = return_cases_educational(pat1, pat2, pat3)
 ES_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
 ES_DF = es_df(ES_DF)
 
