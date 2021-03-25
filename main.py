@@ -19,12 +19,11 @@ from functions.la_cases import add_ZipCode
 # rcac_string, No_columns = rcac_section()
 r1, r2, r3, r4, r5, No_columns = rcac_section()
 cases = return_cases_ResCong(r1, r2, r3, r4, r5)
-# cases = return_cases(rcac_string)
 
-# RCAC_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
-# RCAC_DF = rcac_df(RCAC_DF)
+RCAC_DF = convert_scrapped_data_to_dataframe(cases, data_length=No_columns)
+RCAC_DF = rcac_df(RCAC_DF)
 
-# RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
+RCAC_DF.to_csv(r'~/Desktop/Residual_Congregate_and_Acute_Care_Settings.csv', index=False)
 
 
 # RCAC_DF = parse_address(RCAC_DF, RCAC_DF['city_name'])
