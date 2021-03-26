@@ -76,8 +76,8 @@ def rcac_section():
     """
     # RCAC_string = 'Residential Congregate and Acute Care Settings Meeting the Criteria of (1) At Least One Laboratory-confirmed Resident or (2) Two or More Laboratory-confirmed Staff in Long-Term Care Facilities that are not Skilled Nursing Facilities, or (3) Three or More Laboratory-Confirmed Staff in Shared Housing'
     rcac_string1 = 'Active Outbreaks at Residential Congregate and Acute Care Settings with (1) At Least One '
-    rcac_string2 = 'Laboratory-confirmed'
-    rcac_string3 = ' Resident, or (2) Two or More Laboratory-confirmed Staff in Long-Term Care Facilities that are not Skilled Nursing Facilities, or (3) Three or More '
+    rcac_string2 = 'Laboratory-Confirmed'
+    rcac_string3 = ' Resident, or (2) Two or More Laboratory-Confirmed Staff in Long-Term Care Facilities that are not Skilled Nursing Facilities, or (3) Three or More '
     rcac_string4 = 'Laboratory-Confirmed'
     rcac_string5 = ' Staff in Shared Housing'
     column_size = 5
@@ -100,7 +100,7 @@ def LAC_NR_section():
     pat1 = 'Active Outbreaks at '
     pat2 = 'Non-Residential'
     pat3 = ' Settings with Three or More '
-    pat4 = 'Laboratory-confirmed'
+    pat4 = 'Laboratory-Confirmed'
     pat5 = ' '
     pat6 = 'COVID-19'
     pat7 = ' Cases'
@@ -117,7 +117,7 @@ def lac_hss_section():
     """
     # HSS_string = 'Los Angeles County Homeless Service Settings Meeting the Criteria of At Least One '
     pat1 = 'Active Outbreaks at Homeless Service Settings with at Least One '
-    pat2 = 'Laboratory-confirmed'
+    pat2 = 'Laboratory-Confirmed'
     pat3 = ' '
     pat4 = 'COVID-19'
     pat5 = ' Case'
@@ -133,7 +133,7 @@ def lac_es_section():
     """
     # education_string = 'Los Angeles County Educational Settings Meeting the Criteria of Three or More '
     pat1 = 'Active Outbreaks at Educational Settings with Three or More '
-    pat2 = 'Laboratory-confirmed'
+    pat2 = 'Laboratory-Confirmed'
     pat3 = ' COVID-19 Cases'
     column_size = 4
 
