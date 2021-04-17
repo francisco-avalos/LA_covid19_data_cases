@@ -16,7 +16,7 @@ def search_start_end(entry_list):
     while (i < length):
         if ((entry_list[i]=='\n') & (entry_list[i+1]=='1')):
             start = i+2
-        if ((entry_list[i]=='\n') & (entry_list[i+1]=='Total')):
+        if ((entry_list[i]=='\n') & ((entry_list[i+1]=='Total') | (entry_list[i+1]=='Totals'))):
             end = i-1
         if ((start != 0) & (end != 0)):
             break
