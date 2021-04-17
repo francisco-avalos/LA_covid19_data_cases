@@ -60,7 +60,7 @@ NR_DF.to_csv(r'~/Desktop/LA_County_Non-Residential_Settings(Parsed).csv', index=
 
 
 
-# ## Homeless Service Settings
+## Homeless Service Settings
 
 # pat1, pat2, pat3, pat4, pat5, No_columns = lac_hss_section()
 # cases = return_cases_home(pat1, pat2, pat3, pat4, pat5)
